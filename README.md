@@ -1,0 +1,2 @@
+# Django-pictures-blog
+Python
