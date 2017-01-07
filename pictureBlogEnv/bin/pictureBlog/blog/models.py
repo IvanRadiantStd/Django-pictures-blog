@@ -16,11 +16,14 @@ class Post(models.Model):
 	class Meta():
 		db_table = "post"
 	post_title = models.CharField(max_length = 200)
+	post_img = models.CharField(max_length = 200)
 	post_description = models.TextField()
 	post_date = models.DateTimeField()
 	post_author = models.ForeignKey(ExtandUser,blank=True, null= True)
-	post_like = models.IntegerField(default = -1)
-	post_dislike = models.IntegerField(default = -1)
+	post_likes = models.IntegerField(default = 0)
+	post_dislikes = models.IntegerField(default = 0)
+	def difference(self):
+		return self.post_likes - self.post_dislikes
 
 class View(models.Model):
 	class Meta():
@@ -35,3 +38,4 @@ class Opinion(models.Model):
 	opinion_opn = models.IntegerField(default = -1)
 	opinion_author = models.ForeignKey(ExtandUser,blank=True, null= True)
 	opinion_post = models.ForeignKey(Post,blank=True, null= True) 
+

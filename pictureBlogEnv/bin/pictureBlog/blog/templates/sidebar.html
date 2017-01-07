@@ -1,0 +1,106 @@
+{% extends 'index.html' %}
+
+{% block sidebar %}
+<aside class="blog-sidebar">
+
+
+							<div class="filter-wrapper">
+								<div class="filter-tabs">
+									<span class="filter-tab">Популярные</span>
+									<span class="filter-tab">Последние</span>        
+								</div>
+								<div class="filter-tab-content">
+
+									<div class="filter-tab-item">
+
+										<div class="sidebar-slider">
+
+
+											{% for post in posts %}
+
+											<div class="sidebar-slider-item">
+
+												<a href="{{ post.id }}"><img src="img/filter/example.jpg" alt="{{ post.post_img }}"></a>
+
+												<div class="content">
+
+													<h4>{{ post.post_title }}</h4>
+
+													<div class="rating">
+
+														<span class="minus"><img src="img/minus.png" alt="minus"></span>
+														<span class="rating-value">{{ post.difference }}</span>
+														<span class="plus"><img src="img/plus.png" alt="plus"></span>
+
+													</div>
+
+												</div>
+
+
+											</div>	
+
+											{% endfor %}
+
+										</div>
+
+									</div>
+
+									<div class="filter-tab-item">
+
+
+										<div class="sidebar-slider">
+
+											{% for post in posts %}
+
+											<div class="sidebar-slider-item">
+
+												<a href="{{ post.id }}"><img src="img/filter/example.jpg" alt="{{ post.post_img }}"></a>
+
+												<div class="content">
+
+													<h4>{{ post.post_title }}</h4>
+
+													<div class="rating">
+
+														<span class="minus"><img src="img/minus.png" alt="minus"></span>
+														<span class="rating-value">{{ post.difference }}</span>
+														<span class="plus"><img src="img/plus.png" alt="plus"></span>
+
+													</div>
+
+												</div>
+
+
+											</div>	
+
+											{% endfor %}							
+
+										</div>
+
+									</div>
+
+								</div>
+
+
+							</div>
+
+
+							<h2>Теги</h2>
+
+							<div class="tagCloud">
+								<a href="/path" rel="7">peace</a>
+								<a href="/path" rel="10">unity</a>
+								<a href="/path" rel="5">love</a>
+								<a href="/path" rel="5">having fun</a>
+								<a href="/path" rel="7">peace</a>
+								<a href="/path" rel="3">unity</a>
+								<a href="/path" rel="10">love</a>
+								<a href="/path" rel="5">having fun</a>
+								<a href="/path" rel="7">peace</a>
+								<a href="/path" rel="3">unity</a>
+								<a href="/path" rel="10">love</a>
+								<a href="/path" rel="5">having fun</a>
+							</div>
+							
+</aside>
+{% endblock %}
