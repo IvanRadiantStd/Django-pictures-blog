@@ -11,6 +11,7 @@ class ExtandUser(models.Model):
 	class Meta():
 		db_table = "extanduser"
 	extandUser_user = models.OneToOneField(User,on_delete = models.CASCADE)
+	extandUser_email = models.CharField(max_length = 200)
 
 class Post(models.Model):
 	class Meta():
@@ -29,7 +30,7 @@ class View(models.Model):
 	class Meta():
 		db_table = "view"
 	view_time = models.DateTimeField()
-	view_user = models.OneToOneField(ExtandUser)
+	view_user = models.OneToOneField(ExtandUser, on_delete = models.CASCADE)
 	post_view = models.ForeignKey(Post,blank=True, null= True) 
 
 class Opinion(models.Model):

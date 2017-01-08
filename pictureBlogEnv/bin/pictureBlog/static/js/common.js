@@ -7,19 +7,38 @@ $(function() {
 		});
 	};
 
+
+	/*************AJAX to python views***************/
+
+	/*	$.ajax({
+			type: "GET",
+			url: "/auth/login/", //Change
+		}).done(function(response) {
+			$(".hidden-div").append(response);
+		});
+	*/
+
+	/*************end*****************/
+
 	//E-mail Ajax Send
 	$("form").submit(function() { //Change
 		var th = $(this);
+		var action = $(this).attr("data-action");
 		$.ajax({
 			type: "POST",
-			url: "mail.php", //Change
-			data: th.serialize()
-		}).done(function() {
-			alert("Thank you!");
+			url: action, //Change
+			data: th.serialize(),
+			statusCode: {
+				400: function(){
+					$(th).find(".error").show()
+				}
+			}
+		}).done(function(data) {
 			setTimeout(function() {
 				// Done Functions
 				th.trigger("reset");
 			}, 1000);
+			location.reload();
 		});
 		return false;
 	});
@@ -160,5 +179,6 @@ $(function() {
 	/****************END******************/
 
 
-});
+	
 
+});

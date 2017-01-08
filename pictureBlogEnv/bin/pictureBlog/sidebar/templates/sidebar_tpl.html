@@ -1,6 +1,6 @@
-{% extends 'index.html' %}
 
-{% block sidebar %}
+{% load staticfiles %}
+
 <aside class="blog-sidebar">
 
 
@@ -28,9 +28,9 @@
 
 													<div class="rating">
 
-														<span class="minus"><img src="img/minus.png" alt="minus"></span>
+														<span class="minus"><img src="{% static '/img/minus.png' %}" alt="minus"></span>
 														<span class="rating-value">{{ post.difference }}</span>
-														<span class="plus"><img src="img/plus.png" alt="plus"></span>
+														<span class="plus"><img src="{% static '/img/plus.png' %}" alt="plus"></span>
 
 													</div>
 
@@ -62,9 +62,9 @@
 
 													<div class="rating">
 
-														<span class="minus"><img src="img/minus.png" alt="minus"></span>
+														<span class="minus"><img src="{% static '/img/minus.png' %}" alt="minus"></span>
 														<span class="rating-value">{{ post.difference }}</span>
-														<span class="plus"><img src="img/plus.png" alt="plus"></span>
+														<span class="plus"><img src="{% static '/img/plus.png' %}" alt="plus"></span>
 
 													</div>
 
@@ -103,4 +103,3 @@
 							</div>
 							
 </aside>
-{% endblock %}

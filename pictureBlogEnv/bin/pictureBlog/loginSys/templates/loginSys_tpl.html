@@ -1,0 +1,22 @@
+
+<form data-action="/auth/login/" method="POST" class="login-form zoom-anim-dialog" id="login-form">
+			
+			<h3>Вход</h3>
+					
+			<label for="Login">Логин:<input type="text" placeholder="Логин" name="Login" id="Login" required=""></label>
+					
+			<label for="Password">Пароль:<input type="password" placeholder="Пароль" name="Password" id="Password" required=""></label>
+			
+			{% csrf_token %}	
+
+			
+			<label class="error">Ошибка!{{ login_error }}</label>
+			
+				
+			<div class="btn-wrap">
+
+				<button class="std-button">Войти</button>
+
+			</div>
+
+</form>

@@ -30,7 +30,7 @@
 	<script>!function(e){"use strict";function t(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent&&e.attachEvent("on"+t,n)}function n(t,n){return e.localStorage&&localStorage[t+"_content"]&&localStorage[t+"_file"]===n}function a(t,a){if(e.localStorage&&e.XMLHttpRequest)n(t,a)?o(localStorage[t+"_content"]):l(t,a);else{var s=r.createElement("link");s.href=a,s.id=t,s.rel="stylesheet",s.type="text/css",r.getElementsByTagName("head")[0].appendChild(s),r.cookie=t}}function l(e,t){var n=new XMLHttpRequest;n.open("GET",t,!0),n.onreadystatechange=function(){4===n.readyState&&200===n.status&&(o(n.responseText),localStorage[e+"_content"]=n.responseText,localStorage[e+"_file"]=t)},n.send()}function o(e){var t=r.createElement("style");t.setAttribute("type","text/css"),r.getElementsByTagName("head")[0].appendChild(t),t.styleSheet?t.styleSheet.cssText=e:t.innerHTML=e}var r=e.document;e.loadCSS=function(e,t,n){var a,l=r.createElement("link");if(t)a=t;else{var o;o=r.querySelectorAll?r.querySelectorAll("style,link[rel=stylesheet],script"):(r.body||r.getElementsByTagName("head")[0]).childNodes,a=o[o.length-1]}var s=r.styleSheets;l.rel="stylesheet",l.href=e,l.media="only x",a.parentNode.insertBefore(l,t?a:a.nextSibling);var c=function(e){for(var t=l.href,n=s.length;n--;)if(s[n].href===t)return e();setTimeout(function(){c(e)})};return l.onloadcssdefined=c,c(function(){l.media=n||"all"}),l},e.loadLocalStorageCSS=function(l,o){n(l,o)||r.cookie.indexOf(l)>-1?a(l,o):t(e,"load",function(){a(l,o)})}}(this);</script>
 
 	<!-- Load CSS Start -->
-	<script>loadLocalStorageCSS( "webfonts", "{%  static 'static/css/fonts.min.css' %}?ver=1.0.0" );</script>
+	<script>loadCSS(  "{%  static 'static/css/fonts.min.css' %}?ver=1.0.0" );</script>
 	<script>loadCSS( "{%  static 'static/css/header.min.css' %}?ver=1.0.0", false, "all" );</script>
 	<script>loadCSS( "{%  static 'static/css/main.min.css' %}?ver=1.0.0", false, "all" );</script>
 	<!-- Load CSS End -->
@@ -82,9 +82,17 @@
 					<div class="col-md-4">
 
 						<ul class="user-menu">
-							<li><i class="fa fa-sign-in" aria-hidden="true"></i>
-							<a class="popup-with-zoom-anim " href="#login-form">Войти</a></li>
-							<li><i class="fa fa-user" aria-hidden="true"></i><a class="popup-with-zoom-anim" href="#registr-form">Зарегестрироваться</a></li>
+
+							{% if userName %}
+								<li><i class="fa fa-user" aria-hidden="true"></i><a class="popup-with-zoom-anim" href="#">{{ userName }}</a></li>
+								<li><i class="fa fa-sign-out" aria-hidden="true"></i>
+								<a href="/auth/logout/">Выйти</a></li>
+							{% else %}
+								<li><i class="fa fa-user" aria-hidden="true"></i><a class="popup-with-zoom-anim" href="#registr-form">Зарегестрироваться</a></li>
+								<li><i class="fa fa-sign-in" aria-hidden="true"></i>
+								<a class="popup-with-zoom-anim " href="#login-form">Войти</a></li>
+							{% endif %}
+
 						</ul>
 						
 					</div>
@@ -98,61 +106,8 @@
 
 	</header>
 
-	<section class="blog-content">
-		
-		<div class="container">
-			
-			<div class="inner-background">
-
-				<div class="row">
-
-					<div class="col-md-8 equal-heights-columns">
-						
-						<div class="wall ">
-
-							<h1>Radiant - лучший блог для любителей смешных картинок</h1>
-
-							<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Подпоясал точках заголовок вопрос прямо снова журчит снова! Но на берегу, вершину свою приставка это щеке языком снова дороге, своих единственное.</p>
-
-							<ul>
-								<li>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</li>
-								<li>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Они единственное курсивных запятой образ ты силуэт.</li>
-								<li>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</li>
-								<li>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Семантика переписывается силуэт своего!</li>
-							</ul>
-
-							<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Правилами ему над напоивший ручеек на берегу проектах текст себя текста маленький которой речью она подзаголовок грустный страну, своих дороге не!</p>
-
-							<ul class="advantages">
-								<li><span class="number">1</span>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</li>
-								<li><span class="number">2</span>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Они единственное курсивных запятой образ ты силуэт.</li>
-								<li><span class="number">3</span>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные.</li>
-								<li><span class="number">4</span>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Семантика переписывается силуэт своего!</li>
-							</ul>
-
-							<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Выйти последний, свою то гор ручеек переписывается не грамматики рукопись lorem взобравшись ему что живет от всех моей, силуэт? Вопрос дорогу, сих языкового ведущими буквенных что себя знаках ее заманивший предупреждал букв, скатился по всей грамматики курсивных предложения, переписывается первую маленькая всемогущая коварных инициал коварный города раз продолжил реторический. Текстов маленький коварный пор он диких несколько свое точках то запятой строчка бросил буквоград рекламных решила, вопрос языкового свой возвращайся. Всемогущая одна не точках маленькая жаренные букв, жизни которой он взобравшись злых заглавных вскоре, прямо города рекламных правилами инициал подпоясал курсивных коварных. Ему которой родного рот единственное свой взгляд над! Продолжил, силуэт грустный единственное гор великий знаках наш имени они безопасную раз языком вопрос коварных, жаренные залетают, маленькая запятой предложения парадигматическая подзаголовок напоивший! Скатился, языкового, то. Которое деревни всемогущая раз, агенство, безорфографичный осталось оксмокс lorem путь имени знаках заглавных дал свой предупредила однажды?</p>
-
-						</div>
-
-
-
-					</div>
-
-					<div class="col-md-4 equal-heights-columns">
-
-						<!-- blog/templates/sidebar.html -->
-						{% block sidebar %}
-						{% endblock %}
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
+	{% block main_page %}
+	{% endblock %}
 
 	<footer class="main-footer">
 		
@@ -206,24 +161,10 @@
 	</footer>
 
 
-	<div class="hidden">
+	<div class="hidden hidden-div">
 
-		<form  class="login-form zoom-anim-dialog" id="login-form">
-			
-			<h3>Вход</h3>
-			
-			<label for="Login">Логин:<input type="text" placeholder="Логин" name="Login" id="Login" required=""></label>
-			
-			<label for="Password">Пароль:<input type="password" placeholder="Пароль" name="Password" id="Password" required=""></label>
-			
-			
-			<div class="btn-wrap">
-
-				<button class="std-button">Войти</button>
-
-			</div>
-
-		</form>
+		{% load loginSys %}
+			{% loginSys %}
 
 		<form  class="login-form zoom-anim-dialog" id="registr-form">
 			
