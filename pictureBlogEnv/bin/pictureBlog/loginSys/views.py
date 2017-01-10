@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response, redirect
 from django.contrib import auth
 from django.http import HttpResponseBadRequest
+from django.contrib.auth.models import User
 # Create your views here.
 
 @csrf_protect
@@ -27,3 +28,21 @@ def login(request):
 def logout(request):
 	auth.logout(request)
 	return redirect("/")
+
+@csrf_protect
+def register(request):
+	args = {}
+	if request.POST:
+		name = request.POST.get('username')
+		password = request.POST.get('password1')
+		passwordConfirm = request.POST.get('password2')
+		if(password == passwordConfirm):
+			user = User.objects.create_user(name, '', password)
+			user.save()
+		newuser = auth.authenticate(username = name,
+										password = password)
+		auth.login(request, newuser)
+		return redirect('/')
+	else:
+			return HttpResponseBadRequest(newuser_form)
+	return render(request, "register_tpl.html", args)

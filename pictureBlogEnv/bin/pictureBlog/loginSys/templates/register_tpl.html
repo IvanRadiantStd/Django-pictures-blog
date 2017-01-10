@@ -1,0 +1,19 @@
+<form data-action="/auth/register/" method="POST" class="login-form zoom-anim-dialog" id="registr-form">
+			
+			<h3>Регистрация</h3>
+
+			<!--<label for="Login">Логин:<input type="text" placeholder="Логин" name="Login" id="Login" required=""></label>
+			<label for="Password">Пароль:<input type="password" placeholder="Пароль" name="Password" id="Password" required=""></label>
+			<label for="ConfirmPassword">Повторите пароль:<input type="password" placeholder="Пароль" name="Password" id="ConfirmPassword" required=""></label>
+			<label for="Email">E-mail:<input type="email" placeholder="E-mail" name="E-mail" required="" id="Email"></label>-->
+			{% csrf_token %}	
+			{{ form }}
+			
+			
+			<div class="btn-wrap">
+
+				<button class="std-button">Зарегестрироваться</button>
+
+			</div>
+
+		</form>
