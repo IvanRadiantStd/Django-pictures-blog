@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models
@@ -17,7 +18,7 @@ class Post(models.Model):
 	class Meta():
 		db_table = "post"
 	post_title = models.CharField(max_length = 200)
-	post_img = models.CharField(max_length = 200)
+	post_img = models.ImageField(null = True, blank= True, upload_to ="images/",verbose_name = 'Изображение')
 	post_description = models.TextField()
 	post_date = models.DateTimeField()
 	post_author = models.ForeignKey(ExtandUser,blank=True, null= True)

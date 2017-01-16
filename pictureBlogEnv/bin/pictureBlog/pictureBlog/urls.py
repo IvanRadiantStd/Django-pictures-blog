@@ -22,3 +22,4 @@ urlpatterns = [
     url(r'^auth/', include('loginSys.urls')),
     url(r'^', include('blog.urls')),
 ]
+

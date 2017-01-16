@@ -129,3 +129,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join('static', "/home/neostat/Django-pictures-blog/pictureBlogEnv/bin/pictureBlog/"),
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
