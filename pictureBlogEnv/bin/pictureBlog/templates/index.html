@@ -7,7 +7,7 @@
 
 	<meta charset="utf-8">
 
-	<title>Блог картинок</title>
+	<title>{{ page_title }}</title>
 	<meta name="description" content="">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,7 +58,7 @@
 					<div class="col-md-4">
 						
 						<div class="logo-wrap">
-							<a href="index.html" class="logo">
+							<a href="/" class="logo">
 								<img src="{% static 'static/img/logo.png' %}" alt="Radiant">
 							</a>
 						</div>
@@ -67,15 +67,8 @@
 
 					<div class="col-md-4">
 						
-						<nav class="top-nav">
-							
-							<ul>
-								<li><a href="index.html">Главная</a></li>
-								<li><a href="pictures.html">Картинки</a></li>
-								<li><a href="about-authors.html">Об авторах</a></li>
-							</ul>
-
-						</nav>
+						{% load navigation %}
+						{% navigation %}
 
 					</div>
 
@@ -108,6 +101,10 @@
 
 	{% block main_page %}
 	{% endblock %}
+	{% block pictures_page %}
+	{% endblock %}
+	{% block about_page %}
+	{% endblock %}
 
 	<footer class="main-footer">
 		
@@ -121,7 +118,7 @@
 					<div class="col-md-4">
 						
 						<div class="logo-wrap">
-							<a href="index.html" class="logo">
+							<a href="/" class="logo">
 								<img src="{% static 'static/img/logo.png' %}" alt="Radiant">
 							</a>
 						</div>
@@ -130,15 +127,8 @@
 
 					<div class="col-md-4">
 						
-						<nav class="top-nav">
-							
-							<ul>
-								<li><a href="index.html">Главная</a></li>
-								<li><a href="pictures.html">Картинки</a></li>
-								<li><a href="about-authors.html">Об авторах</a></li>
-							</ul>
-
-						</nav>
+						{% load navigation %}
+						{% navigation %}
 
 					</div>
 

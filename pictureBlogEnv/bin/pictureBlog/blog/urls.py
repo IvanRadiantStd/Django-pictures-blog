@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
+    url(r'^pictures/$', views.pictures_page),
+    url(r'^about/$', views.about_page),
     url(r'^$', views.main_page),
 ]
 

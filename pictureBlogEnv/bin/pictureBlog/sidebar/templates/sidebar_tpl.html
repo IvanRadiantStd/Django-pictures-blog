@@ -61,7 +61,9 @@
 
 											<div class="sidebar-slider-item">
 
-												<a href="{{ post.id }}"><img src="img/filter/example.jpg" alt="{{ post.post_img }}"></a>
+												{% if post.post_img %}
+													<img src="{{ post.post_img.url }}">
+												{% endif %}
 
 												<div class="content">
 

@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 from django.shortcuts import render
 from django.http.response import HttpResponse, Http404
 from django.template.loader import get_template
@@ -8,4 +9,13 @@ from django.contrib import auth
 # Create your views here.
 
 def main_page(request):
-	return render(request, 'main-page_tpl.html', { 'userName': auth.get_user(request).username})
+	page_title = "Блог картинок"
+	return render(request, 'main-page_tpl.html', { 'page_title' : page_title, 'userName': auth.get_user(request).username})
+
+def pictures_page(request):
+	page_title = "Картинки"
+	return render(request, 'pictures-page_tpl.html', {'page_title' : page_title, 'userName': auth.get_user(request).username})
+
+def about_page(request):
+	page_title = "Об авторах"
+	return render(request, 'about-page_tpl.html', { 'page_title' : page_title,'userName': auth.get_user(request).username})

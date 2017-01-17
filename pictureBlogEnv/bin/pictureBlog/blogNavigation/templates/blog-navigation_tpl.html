@@ -1,0 +1,12 @@
+
+{% load staticfiles %}
+
+<nav class="top-nav">
+	
+	<ul>
+		{% for item in menu_items %}
+			<li><a href="{{ item.navigation_url }}">{{ item.navigation_title }}</a></li>
+		{% endfor %}
+	</ul>
+
+</nav>

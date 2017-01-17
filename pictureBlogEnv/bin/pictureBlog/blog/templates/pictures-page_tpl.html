@@ -1,0 +1,110 @@
+{% extends 'index.html' %}
+
+{% block pictures_page %}
+<section class="blog-content">
+		
+		<div class="container">
+			
+			<div class="inner-background">
+
+				<div class="row">
+
+					<div class="col-md-8 equal-heights-columns">
+						
+						<div class="wall ">
+							
+							<div class="filter">
+
+								<ul class="category-select">
+									<li class="active"><a href="#">Все картинки</a></li>
+									<li><a href="#">Лучшие</a></li>
+									<li><a href="#">Показать за последний час</a></li>
+								</ul>
+
+								<div class="search-by-tags  "><a href="#search-form" class="popup-with-zoom-anim">Найти по тегам</a></div>
+
+							</div>
+
+							<div class="user-panel">
+								<a href="#add-image" class="popup-with-zoom-anim">Добавить новую картинку</a>
+							</div>
+
+
+
+
+							<div class="category-container zoom-gallery">
+
+								<a href="img/filter/example.jpg" data-source="img/filter/example.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example.jpg" >
+								</a>
+
+								<a href="img/filter/example2.jpg" data-source="img/filter/example2.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example2.jpg" >
+								</a>
+
+								<a href="img/filter/example3.jpg" data-source="img/filter/example3.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example3.jpg" >
+								</a>
+
+								<a href="img/filter/example.jpg" data-source="img/filter/example.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example.jpg" >
+								</a>
+
+								<a href="img/filter/example2.jpg" data-source="img/filter/example2.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example2.jpg" >
+								</a>
+
+								<a href="img/filter/example3.jpg" data-source="img/filter/example3.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example3.jpg" >
+								</a>
+
+								<a href="img/filter/example.jpg" data-source="img/filter/example.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example.jpg" >
+								</a>
+
+								<a href="img/filter/example2.jpg" data-source="img/filter/example2.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example2.jpg" >
+								</a>
+
+								<a href="img/filter/example3.jpg" data-source="img/filter/example3.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example3.jpg" >
+								</a>
+								<a href="img/filter/example.jpg" data-source="img/filter/example.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example.jpg" >
+								</a>
+
+								<a href="img/filter/example2.jpg" data-source="img/filter/example2.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example2.jpg" >
+								</a>
+
+								<a href="img/filter/example3.jpg" data-source="img/filter/example3.jpg" title="ЕTitle" class="category-item">
+									<img src="img/filter/example3.jpg" >
+								</a>
+
+								<div class="healper"></div>
+						
+							</div>
+
+							
+
+						</div>
+
+
+
+					</div>
+
+					<div class="col-md-4 equal-heights-columns">
+
+						{% load sidebar %}
+							{% sidebar %}
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'index.html' %}
+
+{% block about_page %}
+<section class="blog-content">
+		
+		<div class="container">
+			
+			<div class="inner-background">
+
+				<div class="row">
+
+					<div class="col-md-8 equal-heights-columns">
+						
+						<div class="wall ">
+
+							<h1>Об авторах</h1>
+
+							<div class="author">
+								
+								<div class="cell">
+
+									<div class="img-wrap">
+										<img src="img/authors/ivan.jpg" alt="Ivan">
+									</div>
+
+								</div>
+
+								<div class="cell">
+									
+									<h2>Крепышев Иван Евгеньевич</h2>
+
+									<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Залетают безорфографичный злых переписали свою на берегу</p>
+
+									<ul>
+										<li>Html</li>
+										<li>Css</li>
+										<li>Js</li>
+										<li>Python</li>
+									</ul>
+
+									<p>Аккаунт на <a href="#">fl.ru</a> <a href="https://www.fl.ru/users/Ivan_Radiant/">Ivan_Radiant</a>, почта <a href="mailto:iv.radiant@yandex.ru">iv.radiant@yandex.ru</a></p>
+
+								</div>
+
+							</div>
+
+							<div class="author">
+								
+								<div class="cell">
+
+									<div class="img-wrap">
+										<img src="img/authors/vika.jpg" alt="Ivan">
+									</div>
+
+								</div>
+
+								<div class="cell">
+									
+									<h2>Безрядина Виктория Павловна</h2>
+
+									<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Залетают безорфографичный злых переписали свою на берегу</p>
+
+									<ul>
+										<li>Html</li>
+										<li>Css</li>
+										<li>Js</li>
+										<li>Python</li>
+									</ul>
+
+									<p>Аккаунт на <a href="#">fl.ru</a> <a href="https://www.fl.ru/users/Ivan_Radiant/">Ivan_Radiant</a>, почта <a href="mailto:iv.radiant@yandex.ru">iv.radiant@yandex.ru</a></p>
+
+								</div>
+
+							</div>
+
+
+						</div>
+
+
+
+					</div>
+
+					<div class="col-md-4 equal-heights-columns">
+
+						{% load sidebar %}
+							{% sidebar %}
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</section>
+{% endblock %}
