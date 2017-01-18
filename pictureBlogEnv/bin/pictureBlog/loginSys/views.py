@@ -50,11 +50,17 @@ def register(request):
 
 @csrf_protect
 def addPost(request):
-	if request.POST:
-		form = PostForm(request.POST, request.FILES)
-		if form.is_valid():
-			form.save()
-			return redirect('/pictures/')
+	user = auth.get_user(request)
+	if(user):
+		if request.POST:
+			form = PostForm(request.POST, request.FILES)
+			if form.is_valid():
+				post = form.save(commit = False)
+				post.post_author = user
+				form.save()
+				return redirect('/pictures/')
+			else:
+				return HttpResponseBadRequest()
 		else:
 			return HttpResponseBadRequest()
 	return redirect('/pictures/')

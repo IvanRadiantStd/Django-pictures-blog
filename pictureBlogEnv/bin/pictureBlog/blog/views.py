@@ -14,7 +14,9 @@ def main_page(request):
 
 def pictures_page(request):
 	page_title = "Картинки"
-	return render(request, 'pictures-page_tpl.html', {'page_title' : page_title, 'userName': auth.get_user(request).username})
+	posts = Post.objects.all()
+	return render(request, 'pictures-page_tpl.html', {'posts': posts, 'page_title' : page_title, 'userName': auth.get_user(request).username})
+
 
 def about_page(request):
 	page_title = "Об авторах"

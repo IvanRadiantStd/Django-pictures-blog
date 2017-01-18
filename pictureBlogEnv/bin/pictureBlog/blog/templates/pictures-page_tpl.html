@@ -24,62 +24,25 @@
 								<div class="search-by-tags  "><a href="#search-form" class="popup-with-zoom-anim">Найти по тегам</a></div>
 
 							</div>
-
+							
+							{% if userName %}
 							<div class="user-panel">
 								<a href="#add-image" class="popup-with-zoom-anim">Добавить новую картинку</a>
 							</div>
+							{% endif %}
 
 
 
 
 							<div class="category-container zoom-gallery">
+								
+								{% for post in posts %}
 
-								<a href="img/filter/example.jpg" data-source="img/filter/example.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example.jpg" >
-								</a>
-
-								<a href="img/filter/example2.jpg" data-source="img/filter/example2.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example2.jpg" >
+								<a href="{{ post.post_img.url }}" data-source="{{ post.post_img.url }}" title="{{ post.post_title }}" class="category-item">
+									<img src="{{ post.post_img.url }}" >
 								</a>
 
-								<a href="img/filter/example3.jpg" data-source="img/filter/example3.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example3.jpg" >
-								</a>
-
-								<a href="img/filter/example.jpg" data-source="img/filter/example.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example.jpg" >
-								</a>
-
-								<a href="img/filter/example2.jpg" data-source="img/filter/example2.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example2.jpg" >
-								</a>
-
-								<a href="img/filter/example3.jpg" data-source="img/filter/example3.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example3.jpg" >
-								</a>
-
-								<a href="img/filter/example.jpg" data-source="img/filter/example.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example.jpg" >
-								</a>
-
-								<a href="img/filter/example2.jpg" data-source="img/filter/example2.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example2.jpg" >
-								</a>
-
-								<a href="img/filter/example3.jpg" data-source="img/filter/example3.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example3.jpg" >
-								</a>
-								<a href="img/filter/example.jpg" data-source="img/filter/example.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example.jpg" >
-								</a>
-
-								<a href="img/filter/example2.jpg" data-source="img/filter/example2.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example2.jpg" >
-								</a>
-
-								<a href="img/filter/example3.jpg" data-source="img/filter/example3.jpg" title="ЕTitle" class="category-item">
-									<img src="img/filter/example3.jpg" >
-								</a>
+								{% endfor %}
 
 								<div class="healper"></div>
 						

@@ -18,9 +18,10 @@ $(function() {
 		});
 	*/
 
-	/*************end*****************
+	/*************end*****************/
 
-	$("form").submit(function() { //Change
+	//E-mail Ajax Send
+	$("form:not(#add-image)").submit(function() { //Change
 		var th = $(this);
 		var action = $(this).attr("data-action");
 		$.ajax({
