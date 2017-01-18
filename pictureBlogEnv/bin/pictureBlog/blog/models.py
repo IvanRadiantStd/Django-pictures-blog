@@ -18,10 +18,10 @@ class Post(models.Model):
 	class Meta():
 		db_table = "post"
 	post_title = models.CharField(max_length = 200, verbose_name = 'Название')
-	post_img = models.ImageField(null = True, blank= True, upload_to ="images/",verbose_name = 'Изображение')
+	post_img = models.FileField(null = True,  upload_to ="images/",verbose_name = 'Изображение')
 	post_description = models.TextField(verbose_name = 'Описание')
 	post_date = models.DateTimeField()
-	post_author = models.ForeignKey(ExtandUser,blank=True, null= True)
+	post_author = models.ForeignKey(User,blank=True, null= True)
 	post_likes = models.IntegerField(default = 0)
 	post_dislikes = models.IntegerField(default = 0)
 	def difference(self):

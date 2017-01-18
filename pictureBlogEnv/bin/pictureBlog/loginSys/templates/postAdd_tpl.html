@@ -1,11 +1,12 @@
-<form method="POST" class="login-form zoom-anim-dialog" id="add-image" >
+<form action="/auth/addPost/" enctype="multipart/form-data" method="POST" class="login-form zoom-anim-dialog" id="add-image" >
 	<!--<input type="file" accept="image/png, image/jpeg" />
 
 	<label for="Title">Название картинки: <input type="text" id="Title" Name="Title" placeholder="Название картинки" required=""></label>
 
 	<label for="ShortDescription">Краткое описание: <textarea name="ShortDescription" id="ShortDescription" placeholder="Краткое описание"></textarea></label>
 	-->
-
+	
+	{% csrf_token %}	
 	{{ form }}
 	<div class="btn-wrap">
 		<button class="std-button">Добавить</button>

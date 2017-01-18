@@ -18,9 +18,8 @@ $(function() {
 		});
 	*/
 
-	/*************end*****************/
+	/*************end*****************
 
-	//E-mail Ajax Send
 	$("form").submit(function() { //Change
 		var th = $(this);
 		var action = $(this).attr("data-action");
@@ -177,7 +176,7 @@ $(function() {
 		});
 
 	/****************END******************/
-
+	$(".login-form").find("#id_post_img").attr("accept","image/png, image/jpeg");
 
 	
 

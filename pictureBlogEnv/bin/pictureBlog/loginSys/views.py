@@ -6,6 +6,7 @@ from django.shortcuts import render_to_response, redirect
 from django.contrib import auth
 from django.http import HttpResponseBadRequest
 from django.contrib.auth.models import User
+from blog.forms import PostForm
 # Create your views here.
 
 @csrf_protect
@@ -46,3 +47,14 @@ def register(request):
 	else:
 			return HttpResponseBadRequest(newuser_form)
 	return render(request, "register_tpl.html", args)
+
+@csrf_protect
+def addPost(request):
+	if request.POST:
+		form = PostForm(request.POST, request.FILES)
+		if form.is_valid():
+			form.save()
+			return redirect('/pictures/')
+		else:
+			return HttpResponseBadRequest()
+	return redirect('/pictures/')
