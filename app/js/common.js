@@ -158,6 +158,15 @@ $(function() {
 		});
 
 	/****************END******************/
+	$(".category-container .minus").click(function(){
+
+		return false;
+	});
+
+	$(".category-container .plus").click(function(){
+
+		return false;
+	});
 
 
 });
