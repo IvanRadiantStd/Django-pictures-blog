@@ -179,6 +179,14 @@ $(function() {
 	/****************END******************/
 	$(".login-form").find("#id_post_img").attr("accept","image/png, image/jpeg");
 
-	
+	$(".category-container .minus").click(function(){
+
+		return false;
+	});
+
+	$(".category-container .plus").click(function(){
+
+		return false;
+	});
 
 });

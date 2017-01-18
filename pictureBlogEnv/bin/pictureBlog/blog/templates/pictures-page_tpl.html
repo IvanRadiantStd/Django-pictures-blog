@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 
 {% block pictures_page %}
+{% load staticfiles %}
 <section class="blog-content">
 		
 		<div class="container">
@@ -40,6 +41,19 @@
 
 								<a href="{{ post.post_img.url }}" data-source="{{ post.post_img.url }}" title="{{ post.post_title }}" class="category-item">
 									<img src="{{ post.post_img.url }}" >
+									<div class="content">
+
+										<h4>{{ post.post_title }}</h4>
+
+										<div class="rating">
+
+											<span class="minus"><img src="{% static '/img/minus.png' %}" alt=""></span>
+											<span class="rating-value">{{ post.difference }}</span>
+											<span class="plus"><img src="{% static '/img/plus.png' %}" alt=""></span>
+
+										</div>
+
+									</div>
 								</a>
 
 								{% endfor %}
