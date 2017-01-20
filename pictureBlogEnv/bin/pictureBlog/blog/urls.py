@@ -21,7 +21,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    url(r'^pictures/$', views.pictures_page),
+    url(r'^pictures/$', views.PicturesPage.as_view()),
+    url(r'^addlike/(?P<post_id>\d+)/$', views.addlike),
+    url(r'^dislike/(?P<post_id>\d+)/$', views.dislike),
     url(r'^about/$', views.about_page),
     url(r'^$', views.main_page),
 ]

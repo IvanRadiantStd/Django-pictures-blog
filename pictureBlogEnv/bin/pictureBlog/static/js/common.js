@@ -181,10 +181,30 @@ $(function() {
 
 	$(".category-container .minus").click(function(){
 
+		var post_id = $(this).parent().attr("data-post");
+		var rating = $(this).parent().find(".rating-value");
+
+		$.ajax({
+			type: "GET",
+			url: "/dislike/" + post_id + "/", //Change
+		}).done(function(response) {
+			$(rating).text(response);
+		});
+
 		return false;
 	});
 
 	$(".category-container .plus").click(function(){
+
+		var post_id = $(this).parent().attr("data-post");
+		var rating = $(this).parent().find(".rating-value");
+
+		$.ajax({
+			type: "GET",
+			url: "/addlike/" + post_id + "/", //Change
+		}).done(function(response) {
+			$(rating).text(response);
+		});
 
 		return false;
 	});

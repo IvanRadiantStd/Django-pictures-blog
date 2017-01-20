@@ -45,7 +45,7 @@
 
 										<h4>{{ post.post_title }}</h4>
 
-										<div class="rating">
+										<div class="rating" data-post='{{ post.id }}'>
 
 											<span class="minus"><img src="{% static '/img/minus.png' %}" alt=""></span>
 											<span class="rating-value">{{ post.difference }}</span>

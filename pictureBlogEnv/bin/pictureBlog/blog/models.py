@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
 
+
 # Create your models here.
 """
 extended user model to set relations with others entities
@@ -38,7 +39,7 @@ class View(models.Model):
 class Opinion(models.Model):
 	class Meta():
 		db_table = "opinion"
-	opinion_opn = models.IntegerField(default = -1)
-	opinion_author = models.ForeignKey(ExtandUser,blank=True, null= True)
+	opinion_opn = models.IntegerField(default = 0)
+	opinion_author = models.ForeignKey(User,blank=True, null= True)
 	opinion_post = models.ForeignKey(Post,blank=True, null= True) 
-
+	
