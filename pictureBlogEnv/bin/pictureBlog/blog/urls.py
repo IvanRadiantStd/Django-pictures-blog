@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^addlike/(?P<post_id>\d+)/$', views.addlike),
     url(r'^dislike/(?P<post_id>\d+)/$', views.dislike),
     url(r'^about/$', views.about_page),
+    url(r'^pictures/page/(\d+)/$', views.PicturesPage.as_view()),
     url(r'^$', views.main_page),
 ]
 

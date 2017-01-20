@@ -7,14 +7,6 @@ from datetime import datetime
 
 
 # Create your models here.
-"""
-extended user model to set relations with others entities
-"""
-class ExtandUser(models.Model):
-	class Meta():
-		db_table = "extanduser"
-	extandUser_user = models.OneToOneField(User,on_delete = models.CASCADE)
-	extandUser_email = models.CharField(max_length = 200)
 
 class Post(models.Model):
 	class Meta():
@@ -33,7 +25,7 @@ class View(models.Model):
 	class Meta():
 		db_table = "view"
 	view_time = models.DateTimeField()
-	view_user = models.OneToOneField(ExtandUser, on_delete = models.CASCADE)
+	view_user = models.OneToOneField(User, on_delete = models.CASCADE)
 	post_view = models.ForeignKey(Post,blank=True, null= True) 
 
 class Opinion(models.Model):
@@ -42,4 +34,9 @@ class Opinion(models.Model):
 	opinion_opn = models.IntegerField(default = 0)
 	opinion_author = models.ForeignKey(User,blank=True, null= True)
 	opinion_post = models.ForeignKey(Post,blank=True, null= True) 
-	
+
+class Tag(models.Model):
+	class Meta():
+		db_table = "tag"
+	tag_title = models.CharField(max_length = 200, verbose_name = 'Название')
+	tag_posts = models.ManyToManyField(Post)

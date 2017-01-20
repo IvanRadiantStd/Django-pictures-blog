@@ -55,14 +55,37 @@
 
 									</div>
 								</a>
-
+ 
 								{% endfor %}
 
 								<div class="healper"></div>
 						
 							</div>
 
-							
+							<div class="pagination">
+								
+								<ul>
+									{% if posts.has_previous %}
+										<li></li>
+									{% else %}
+										<li></li>
+									{% endif %}
+
+									{% for page in posts.paginator.page_range %}
+										{% if page == posts.number %}
+											<li><a href="/pictures/page/{{ page }}">{{ page }}</a></li>
+										{% else %}
+											<li><a href="/pictures/page/{{ page }}">{{ page }}</a></li>
+										{% endif %}
+									{% endfor %}
+									{% if posts.has_next %}
+										<li></li>
+									{% else %}
+										<li></li>
+									{% endif %}
+								</ul>
+
+							</div>
 
 						</div>
 

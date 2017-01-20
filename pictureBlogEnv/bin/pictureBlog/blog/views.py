@@ -9,6 +9,7 @@ from django.contrib import auth
 from django.views.generic.base import View
 from django.http import HttpResponseBadRequest
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.paginator import Paginator
 # Create your views here.
 
 def main_page(request):
@@ -22,15 +23,22 @@ class PicturesPage(View):
     # Название шаблона
 	template_name = 'pictures-page_tpl.html'
     # Количество объектов на 1 страницу
-	paginate_by = 10
-	def get(self, request):
-		posts = Post.objects.all()
-		return render(request, 'pictures-page_tpl.html', {'posts': posts, 'page_title' : self.page_title, 'userName': auth.get_user(request).username})
+	paginate_by = 9
+	def get(self, request, page_number = 1):
+		args = {}
+		args['page_title'] = self.page_title
+		args['userName'] = auth.get_user(request).username
+		all_posts = Post.objects.all()
+		current_page = Paginator(all_posts, self.paginate_by)
+		args['posts'] = current_page.page(page_number)
+		return render(request, self.template_name, args)
 	
 
 def about_page(request):
-	page_title = "Об авторах"
-	return render(request, 'about-page_tpl.html', { 'page_title' : page_title,'userName': auth.get_user(request).username})
+	args = {}
+	args['page_title'] = "Об авторах"
+	args['userName'] = auth.get_user(request).username
+	return render(request, 'about-page_tpl.html', args)
 
 def addlike(request, post_id):
 	user = auth.get_user(request)
