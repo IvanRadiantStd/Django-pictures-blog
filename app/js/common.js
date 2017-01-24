@@ -169,5 +169,8 @@ $(function() {
 	});
 
 
+		$(".pagination li.unactive a").click(function(){ return false;})
+
+
 });
 
