@@ -179,7 +179,7 @@ $(function() {
 	/****************END******************/
 	$(".login-form").find("#id_post_img").attr("accept","image/png, image/jpeg");
 
-	$(".category-container .minus").click(function(){
+	$(".category-container .minus, .sidebar-slider .minus").click(function(){
 
 		var post_id = $(this).parent().attr("data-post");
 		var rating = $(this).parent().find(".rating-value");
@@ -194,7 +194,7 @@ $(function() {
 		return false;
 	});
 
-	$(".category-container .plus").click(function(){
+	$(".category-container .plus, .sidebar-slider .plus").click(function(){
 
 		var post_id = $(this).parent().attr("data-post");
 		var rating = $(this).parent().find(".rating-value");
@@ -208,5 +208,9 @@ $(function() {
 
 		return false;
 	});
+
+
+	$(".pagination li.unactive a").click(function(){ return false;})
+
 
 });

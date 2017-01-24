@@ -64,24 +64,24 @@
 
 							<div class="pagination">
 								
-								<ul>
+								<ul class="pagination">
 									{% if posts.has_previous %}
-										<li></li>
+										<li><a href="/pictures/page/{{ posts.previous_page_number }}/"><<</a></li>
 									{% else %}
-										<li></li>
+										<li class="unactive"><a href=""><<</a></li>
 									{% endif %}
 
 									{% for page in posts.paginator.page_range %}
 										{% if page == posts.number %}
-											<li><a href="/pictures/page/{{ page }}">{{ page }}</a></li>
+											<li class="current"><a href="/pictures/page/{{ page }}">{{ page }}</a></li>
 										{% else %}
 											<li><a href="/pictures/page/{{ page }}">{{ page }}</a></li>
 										{% endif %}
 									{% endfor %}
 									{% if posts.has_next %}
-										<li></li>
+										<li><a href="/pictures/page/{{ posts.next_page_number }}/">>></a></li>
 									{% else %}
-										<li></li>
+										<li class="unactive"><a href="">>></a></li>
 									{% endif %}
 								</ul>
 
