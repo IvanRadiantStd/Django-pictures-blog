@@ -7,6 +7,7 @@ from django.contrib import auth
 from django.http import HttpResponseBadRequest
 from django.contrib.auth.models import User
 from blog.forms import PostForm
+from blog.models import Post,Tag
 # Create your views here.
 
 @csrf_protect
@@ -58,6 +59,20 @@ def addPost(request):
 				post = form.save(commit = False)
 				post.post_author = user
 				form.save()
+				if request.POST['Tags']:
+					tags = request.POST['Tags'].replace(' ', '').split(',')
+					for i in tags:
+						if i != "":
+							try:
+								tag = Tag.objects.get(tag_title = i)
+								tag.tag_posts.add(post)
+								tag.save()
+							except:
+								tag = Tag(tag_title = i)
+								tag.save()
+								tag.tag_posts.add(post)
+								tag.save()
+				
 				return redirect('/pictures/')
 			else:
 				return HttpResponseBadRequest()

@@ -4,7 +4,7 @@ from django.http.response import HttpResponse, Http404
 from django.template.loader import get_template
 from django.template import Context
 from django.shortcuts import render_to_response, redirect
-from blog.models import Post,Opinion
+from blog.models import Post,Opinion, Tag
 from django.contrib import auth
 from django.views.generic.base import View
 from django.http import HttpResponseBadRequest
@@ -32,7 +32,18 @@ class PicturesPage(View):
 		current_page = Paginator(all_posts, self.paginate_by)
 		args['posts'] = current_page.page(page_number)
 		return render(request, self.template_name, args)
-	
+
+def pictures_by_tag(request, tag_id = 1, ):
+	paginate_by = 9
+	tag = Tag.objects.get(id = tag_id)
+	args = {}
+	args['page_title'] = tag.tag_title
+	args['userName'] = auth.get_user(request).username
+	sought_posts = tag.tag_posts.all()
+	#current_page = Paginator(sought_posts, paginate_by)
+	#args['posts'] = current_page.page(page_number)
+	args['posts'] = sought_posts
+	return render(request, 'pictures-page_tpl.html', args)
 
 def about_page(request):
 	args = {}

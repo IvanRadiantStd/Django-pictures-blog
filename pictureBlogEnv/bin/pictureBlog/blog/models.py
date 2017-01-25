@@ -40,3 +40,5 @@ class Tag(models.Model):
 		db_table = "tag"
 	tag_title = models.CharField(max_length = 200, verbose_name = 'Название')
 	tag_posts = models.ManyToManyField(Post)
+	def countPosts(self):
+		return self.tag_posts.count()
