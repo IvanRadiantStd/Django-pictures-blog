@@ -24,7 +24,7 @@ class PicturesPage(View):
 	template_name = 'pictures-page_tpl.html'
     # Количество объектов на 1 страницу
 	paginate_by = 9
-	def get(self, request, page_number = 1):
+	def get(self, request, page_number = 1, filter = 'all'):
 		args = {}
 		args['page_title'] = self.page_title
 		args['userName'] = auth.get_user(request).username
@@ -43,6 +43,28 @@ def pictures_by_tag(request, tag_id = 1, ):
 	#current_page = Paginator(sought_posts, paginate_by)
 	#args['posts'] = current_page.page(page_number)
 	args['posts'] = sought_posts
+	return render(request, 'pictures-page_tpl.html', args)
+
+def picturesBest(request):
+	paginate_by = 9
+	args = {}
+	args['page_title'] = 'Лучшие картинки'
+	args['userName'] = auth.get_user(request).username
+	best_posts = Post.objects.raw('SELECT * FROM post WHERE (post_likes-post_dislikes) > (SELECT (SUM(post_likes-post_dislikes)/COUNT(*)) FROM post)')
+	#current_page = Paginator(sought_posts, paginate_by)
+	#args['posts'] = current_page.page(page_number)
+	args['posts'] = best_posts
+	return render(request, 'pictures-page_tpl.html', args)
+
+def picturesLast(request):
+	paginate_by = 9
+	args = {}
+	args['page_title'] = 'За последний час'
+	args['userName'] = auth.get_user(request).username
+	last_posts = Post.objects.raw("SELECT * FROM post WHERE post_date >= (now() - '1 HOUR'::interval)")
+	#current_page = Paginator(sought_posts, paginate_by)
+	#args['posts'] = current_page.page(page_number)
+	args['posts'] = last_posts
 	return render(request, 'pictures-page_tpl.html', args)
 
 def about_page(request):

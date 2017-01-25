@@ -8,3 +8,4 @@ register=template.Library()
 def navigation():
 	menu_items = Navigation.objects.all()
 	return { 'menu_items' : menu_items}
+
